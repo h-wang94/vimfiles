@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/h_wang94/Berkeley/rohan188/cs188/proj3_deprecated'
-let g:netrw_dirhist_2='/home/h_wang94/Berkeley/cs186/pj3'
-let g:netrw_dirhist_3='/home/h_wang94/Berkeley/cs186/pj3/src'
-let g:netrw_dirhist_4='/home/h_wang94/Berkeley/cs186/pj3/src/java'
-let g:netrw_dirhist_5='/home/h_wang94/Berkeley/cs186/pj3/src/java/simpledb'
-let g:netrw_dirhist_6='/home/h_wang94/Berkeley/cs186/pj4/src/java/simpledb'
