@@ -6,7 +6,7 @@ let python_highlight_all = 1
 set background=light
 colorscheme gruvbox
 "colorscheme github
-
+"
 set guifont=gohufont
 
 set mouse=a                 " enable mouse use in all modes
@@ -19,7 +19,7 @@ set background=dark
 set selectmode=mouse
 
 set laststatus=2            " always show status line
-set ruler                   " show cursor position (overriden by statusline)
+"set ruler                   " show cursor position (overriden by statusline)
 set showcmd                 " show partial command in bottom-right
 set showtabline=1           " show tabline only when more than one tab exists
 
@@ -64,11 +64,8 @@ set smartcase               " ...unless they contain at least one capital letter
 " "   %) end of width specification
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set noruler
-set laststatus=2
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=\[%F\]\ %c,%l/%L\ %P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-let g:airline_powerline_fonts = 1
 
 set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
 
@@ -108,7 +105,7 @@ map <F6>        [c
 " diffput
 map <F7>        dp
 " tab movements
-map <C-Tab>     :tabn<ENTER>
+map <C-TAB>     :tabn<ENTER>
 map <C-S-TAB>   :tabp<ENTER>
 map <Tab>       :bn<ENTER>
 
@@ -192,9 +189,6 @@ nmap <C-V> "+p
 imap <C-V> <C-R>+
 " mapping copy to conventional commands
 vmap <C-C> "+y
-
-" map CTRL+L to last edited line
-nmap <C-L> g;
 
 " BASH-SUPPORT
 let g:BASH_AuthorName   = 'Harrison Wang'
