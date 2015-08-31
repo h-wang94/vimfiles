@@ -190,6 +190,9 @@ imap <C-V> <C-R>+
 " mapping copy to conventional commands
 vmap <C-C> "+y
 
+let g:ctrlp_map='<c-p>'
+let g:ctrlp_cmd='CtrlP'
+
 " BASH-SUPPORT
 let g:BASH_AuthorName   = 'Harrison Wang'
 let g:BASH_Email        = 'h.wang94@yahoo.com'
