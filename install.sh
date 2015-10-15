@@ -18,7 +18,7 @@
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-git clone git@github.com:h-wang94/vimfiles.git ~/.vim
+cp -r * ~/.vim/ # copy all files over to .vim folder
 ln -s ~/.vim/vimrc ~/.vimrc
 cd ~/.vim
 git submodule init

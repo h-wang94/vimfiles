@@ -201,6 +201,10 @@ nmap <C-L> g;
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd='CtrlP'
 
+" quick-scope toggle
+nmap <leader>q <plug>(QuickScopeToggle)
+vmap <leader>q <plug>(QuickScopeToggle)
+
 " BASH-SUPPORT
 let g:BASH_AuthorName   = 'Harrison Wang'
 let g:BASH_Email        = 'h.wang94@yahoo.com'
