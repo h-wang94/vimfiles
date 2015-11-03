@@ -53,6 +53,7 @@ set ignorecase              " case insensitive...
 set smartcase               " ...unless they contain at least one capital letter
 
 set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
+set autochdir
 
 " statusline
 " " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
