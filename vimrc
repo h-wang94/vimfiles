@@ -1,5 +1,13 @@
 execute pathogen#infect()
 "filetype plugin indent on
+let python_highlight_all = 1
+"colorscheme solarized
+"colorscheme hemisu
+set background=light
+colorscheme gruvbox
+"colorscheme github
+"
+set guifont=gohufont
 
 set mouse=a                 " enable mouse use in all modes
 set noeb                    " no errorbells sound
@@ -11,7 +19,7 @@ set background=dark
 set selectmode=mouse
 
 set laststatus=2            " always show status line
-set ruler                   " show cursor position (overriden by statusline)
+"set ruler                   " show cursor position (overriden by statusline)
 set showcmd                 " show partial command in bottom-right
 set showtabline=1           " show tabline only when more than one tab exists
 
@@ -56,7 +64,10 @@ set pastetoggle=<F2>
 " "   %V current virtual column number (-n), if different from %c
 " "   %P percentage through buffer
 " "   %) end of width specification
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+"set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set noruler
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=\[%F\]\ %c,%l/%L\ %P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
 
@@ -85,7 +96,7 @@ let mapleader = ","             " define map leader
 " CTRL-N is to search a word 
 map <C-N> ve<C-C>/<C-V><CR>
 map <F1>	:q<CR>
-"map <F2>	:w!<CR>
+map <F2>	:w!<CR>
 map <F3>    :n<CR>
 map <F4>    :N<CR>
 " diff
@@ -97,7 +108,7 @@ map <F6>        [c
 map <F7>        dp
 " tab movements
 map <C-Tab>     :tabn<ENTER>
-map <C-S-TAB>   :tabp<ENTER>
+map <C-S-Tab>   :tabp<ENTER>
 map <Tab>       :bn<ENTER>
 
 " when creating a window, want to move to the created window
@@ -182,8 +193,11 @@ imap <C-V> <C-R>+
 " mapping copy to conventional commands
 vmap <C-C> "+y
 
-" map CTRL+L to last edited line
-nmap <C-L> g;
+let g:ctrlp_map='<c-p>'
+let g:ctrlp_cmd='CtrlP'
+
+nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+
 
 " BASH-SUPPORT
 let g:BASH_AuthorName   = 'Harrison Wang'
@@ -195,4 +209,3 @@ let g:BASH_Email        = 'h.wang94@yahoo.com'
 " # - Normal Mode: Highlights all words under cursor
 " ^ - Normal Mode: Beginning of line
 " $ - Normal Mode: End of line
-" :r - Command Mode: Read ________
