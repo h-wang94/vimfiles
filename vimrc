@@ -2,11 +2,18 @@ execute pathogen#infect()
 "filetype plugin indent on
 let python_highlight_all = 1
 "colorscheme solarized
-"colorscheme hemisu
-set background=light
 colorscheme gruvbox
-"colorscheme github
-"
+"set background=light
+set background=dark
+
+augroup templates
+    autocmd!
+    au BufNewFile *.html 0r ~/.vim/templates/html.skel | let IndentStyle="html"
+    au BufNewFile *.java 0r ~/.vim/templates/java.skel | let IndentStyle="java"
+    au BufNewFile *.py 0r ~/.vim/templates/python.skel | let IndentStyle="python"
+
+augroup END
+
 set guifont=gohufont
 
 set mouse=a                 " enable mouse use in all modes
@@ -14,12 +21,12 @@ set noeb                    " no errorbells sound
 set novb                    " no visualbells
 set encoding=utf-8          " set file encoding
 setglobal fileencoding=utf-8 " set file encoding
-set termencoding=utf-8      
-set background=dark
+set termencoding=utf-8
 set selectmode=mouse
 
 set laststatus=2            " always show status line
 "set ruler                   " show cursor position (overriden by statusline)
+set noruler
 set showcmd                 " show partial command in bottom-right
 set showtabline=1           " show tabline only when more than one tab exists
 
@@ -46,6 +53,8 @@ set ignorecase              " case insensitive...
 set smartcase               " ...unless they contain at least one capital letter
 
 set pastetoggle=<F2>
+set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
+set autochdir
 
 " statusline
 " " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
@@ -65,11 +74,11 @@ set pastetoggle=<F2>
 " "   %P percentage through buffer
 " "   %) end of width specification
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
-set noruler
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=\[%F\]\ %c,%l/%L\ %P
+"set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=\[%F\]\ %c,%l/%L\ %P
+if has("statusline")
+ set statusline=%<%f\ %h%m%r%=\[%F\]\ \ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+endif
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
 
 autocmd vimenter * if !argc() | NERDTree | endif
 
@@ -193,11 +202,17 @@ imap <C-V> <C-R>+
 " mapping copy to conventional commands
 vmap <C-C> "+y
 
+" map Ctrl+L to last edited line
+nmap <C-L> g;
+
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd='CtrlP'
 
 nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
 
+" quick-scope toggle
+nmap <leader>q <plug>(QuickScopeToggle)
+vmap <leader>q <plug>(QuickScopeToggle)
 
 " BASH-SUPPORT
 let g:BASH_AuthorName   = 'Harrison Wang'
@@ -209,3 +224,6 @@ let g:BASH_Email        = 'h.wang94@yahoo.com'
 " # - Normal Mode: Highlights all words under cursor
 " ^ - Normal Mode: Beginning of line
 " $ - Normal Mode: End of line
+"
+"
+"
